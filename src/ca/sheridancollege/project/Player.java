@@ -11,40 +11,33 @@ package ca.sheridancollege.project;
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  * @author Megha Patel
+ * @modified by Arshpreet Kaur
  */
-public abstract class Player {
-
-    private String name; //the unique name for this player
 
     /**
-     * A constructor that allows you to set the player's unique ID
+     * A class that allows you to set the player's unique ID
      *
      * @param name the unique ID to assign to this player.
      */
-    public Player(String name) {
-        this.name = name;
+    
+ 
+   
+public class Player implements Vali1 {
+
+    @Override
+    public boolean checklength(String s) {
+
+        return s.length() >= 5;// return true if s is atleast 8
+
     }
 
-    /**
-     * @return the player name
-     */
-    public String getName() {
-        return name;
-    }
+    @Override
+    public boolean checkSpecialCharacter(String s) {
 
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+        String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";
+        return s.matches(specialChars);  //return true if s matches to specialChars
 
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
+    }
 
 }
+
